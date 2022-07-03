@@ -38,24 +38,45 @@ void ds_free(DynamicArray* arr) {
 void ds_push(DynamicArray* arr, int const value) {
     if (arr->length == arr->capacity) {
         int capacity = arr->capacity * 2;
-        int length = arr->length;
 
-        int* tmp = malloc(arr->length * sizeof(int));
-        for (unsigned int i = 0; i < arr->length; ++i) {
-            tmp[i] = arr->data[i];
+        int* tmp = malloc(capacity * sizeof(int));
+        for (unsigned int i = 0; i < capacity; ++i) {
+            if (i < arr->length) {
+                tmp[i] = arr->data[i];
+            } else {
+                tmp[i] = 0;
+            }   
         }
 
-        ds_free(arr);
-
-        DynamicArray* arr = ds_create_dynamic_array(capacity);
-
-        for (unsigned int i = 0; i < length; ++i) {
-            arr->data[i] = tmp[i];
-            arr->length++;
-        }
+        free(arr->data);
+        arr->data = tmp;
+        arr->capacity = capacity;
     }
     arr->data[arr->length] = value;
     arr->length++;
+}
+
+void ds_pop(DynamicArray* arr, int value) {
+    if (arr->length > 0) {
+        arr->length--;
+        arr->data[arr->length] = 0;
+    }
+    if (arr->capacity > 1 && arr->length == arr->capacity / 4) {
+        int capacity = arr->capacity / 2;
+
+        int* tmp = malloc(capacity * sizeof(int));
+        for (unsigned int i = 0; i < capacity; ++i) {
+            if (i < arr->length) {
+                tmp[i] = arr->data[i];
+            } else {
+                tmp[i] = 0;
+            }   
+        }
+
+        free(arr->data);
+        arr->data = tmp;
+        arr->capacity = capacity;
+    }
 }
 
 void ds_copy(DynamicArray* from, DynamicArray* to) {
