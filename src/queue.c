@@ -98,12 +98,12 @@ void ds_info_queue(Queue const * queue) {
     printf("Length: %ld\n", queue->length);
 
     Node* p = queue->front->next;
-    printf("FRONT -> ");
+    printf("FRONT <- ");
     while (p != queue->rear) {
         if (p->next == queue->rear) {
-            printf("%d -> REAR", p->data);
+            printf("%d <- REAR", p->data);
         } else {
-            printf("%d -> ", p->data);
+            printf("%d <- ", p->data);
         }
         p = p->next;
     }
@@ -115,12 +115,12 @@ void ds_info_queue(Queue const * queue) {
 
 void ds_print_queue(Queue const * queue) {
     Node* p = queue->front->next;
-    printf("FRONT -> ");
+    printf("FRONT <- ");
     while (p != queue->rear) {
         if (p->next == queue->rear) {
-            printf("%d -> rear", p->data);
+            printf("%d <- REAR", p->data);
         } else {
-            printf("%d -> ", p->data);
+            printf("%d <- ", p->data);
         }
         p = p->next;
     }

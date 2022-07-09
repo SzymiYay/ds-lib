@@ -3,30 +3,78 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
-// #include "include/dynamic_array.h"
-// #include "include/stack.h"
-// #include "include/linked_list.h"
-#include "include/binary_search_tree.h"
+#include "include/dynamic_array.h"
+#include "include/stack.h"
+#include "include/linked_list.h"
+#include "include/queue.h"
+// #include "include/binary_search_tree.h"
 
 
 int main() {
 
 
 
-    BST* bst = ds_create_binary_search_tree(10);
-    ds_insert_node_binary_search_tree(bst, 12);
-    ds_insert_node_binary_search_tree(bst, 1);
-    ds_insert_node_binary_search_tree(bst, 2);
-    ds_insert_node_binary_search_tree(bst, 23);
-    ds_insert_node_binary_search_tree(bst, 45);
-    ds_insert_node_binary_search_tree(bst, 21);
-    ds_insert_node_binary_search_tree(bst, 7);
-    ds_insert_node_binary_search_tree(bst, 55);
-    ds_insert_node_binary_search_tree(bst, 54);
-    ds_insert_node_binary_search_tree(bst, 53);
-    ds_insert_node_binary_search_tree(bst, 58);
-    Node* p = bst;
-    ds_inorder_binary_search_tree(p);
+    // BST* bst = ds_create_binary_search_tree(10);
+    // ds_insert_node_binary_search_tree(bst, 12);
+    // ds_insert_node_binary_search_tree(bst, 1);
+    // ds_insert_node_binary_search_tree(bst, 2);
+    // ds_insert_node_binary_search_tree(bst, 23);
+    // ds_insert_node_binary_search_tree(bst, 45);
+    // ds_insert_node_binary_search_tree(bst, 21);
+    // ds_insert_node_binary_search_tree(bst, 7);
+    // ds_insert_node_binary_search_tree(bst, 55);
+    // ds_insert_node_binary_search_tree(bst, 54);
+    // ds_insert_node_binary_search_tree(bst, 53);
+    // ds_insert_node_binary_search_tree(bst, 58);
+    // Node* p = bst;
+    // ds_inorder_binary_search_tree(p);
+
+
+
+
+
+
+    Queue* queue = ds_create_queue(0);
+    ds_info_queue(queue);
+    ds_print_queue(queue);
+    ds_enqueue(queue, 10);
+
+    ds_info_queue(queue);
+    ds_print_queue(queue);
+    ds_enqueue(queue, 5);
+
+    ds_info_queue(queue);
+    ds_print_queue(queue);
+    ds_enqueue(queue, 6);
+
+    ds_info_queue(queue);
+    ds_print_queue(queue);
+    ds_enqueue(queue, 66);
+
+    ds_info_queue(queue);
+    ds_print_queue(queue);
+    ds_enqueue(queue, 3904);
+
+    ds_info_queue(queue);
+    ds_print_queue(queue);
+    ds_dequeue(queue);
+
+    ds_info_queue(queue);
+    ds_print_queue(queue);
+    ds_dequeue(queue);
+
+    ds_info_queue(queue);
+    ds_print_queue(queue);
+    ds_dequeue(queue);
+
+    ds_info_queue(queue);
+    ds_print_queue(queue);
+
+
+    ds_free_queue(queue);
+
+
+
 
 
 
@@ -185,7 +233,7 @@ int main() {
     //             ds_set_value_dynamic_array(arr, value, index);
     //             break;
     //         case 8:
-    //             printf("\nAverage of elements is: %d", ds_average_of_elements_dynamic_array(arr));
+    //             printf("\nAverage of elements is: %f", ds_average_of_elements_dynamic_array(arr));
     //             break;
     //         case 9:
     //             printf("\nMax of elements is: %d", ds_max_dynamic_array(arr));
@@ -194,10 +242,10 @@ int main() {
     //             printf("\nMin of elements is: %d", ds_min_dynamic_array(arr));
     //             break;
     //         case 11:
-    //             ds_reversey_dynamic_array(arr);
+    //             ds_reverse_dynamic_array(arr);
     //             break;
     //         case 12:
-    //             printf("\nIs array sorted: %d", ds_is_sorted_dynamic_array(arr) ? "ture" : "false");
+    //             printf("\nIs array sorted: %s", ds_is_sorted_dynamic_array(arr) ? "ture" : "false");
     //             break;
     //         case 13:
     //             ds_bubble_sort_dynamic_array(arr);
@@ -208,7 +256,7 @@ int main() {
     //     }
     // } while (choice < 15);
 
-    // ds_free(arr);
+    // ds_free_dynamic_array(arr);
 
     return 0;
 }

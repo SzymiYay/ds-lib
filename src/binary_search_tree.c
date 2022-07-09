@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
-#include <asssert.h>
+#include <assert.h>
 #include "include/binary_search_tree.h"
 
 
@@ -51,15 +51,15 @@ void ds_insert_node_binary_search_tree(BST* bst, int const value) {
 }
 
 Node * inorderPredecessor(Node *p) {
-    while (p && p->rchild != NULL) {
-        p = p->rchild;
+    while (p && p->right != NULL) {
+        p = p->right;
     }
     return p;
 }
 
 Node * inorderSuccesor(Node *p) {
-    while (p && p->lchild != NULL) {
-        p = p->lchild;
+    while (p && p->left != NULL) {
+        p = p->left;
     }
     return p;
 }
@@ -99,7 +99,7 @@ int ds_height_binary_search_tree(Node *p) {
     int x, y;
     if (p == NULL)
         return 0;
-    x = height(p->lchild);
-    y = height(p->rchild);
+    x = ds_height_binary_search_tree(p->left);
+    y = ds_height_binary_search_tree(p->right);
     return x > y ? x + 1 : y + 1;
 }
