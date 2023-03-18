@@ -46,8 +46,6 @@ int main() {
 2. Linked List
 3. Stack
 4. Queue
-5. BST
-6. AVL
 
 ## Contribute
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
